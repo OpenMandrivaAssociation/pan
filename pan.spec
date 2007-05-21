@@ -5,7 +5,7 @@
 
 Summary:	A USENET newsreader for GNOME
 Name:		pan
-Version:	0.129
+Version:	0.130
 Release:	%mkrel 1
 Epoch:		1
 License:	GPL
@@ -15,6 +15,8 @@ Source0:	http://pan.rebelbase.com/download/releases/%{version}/source/%{name}-%{
 Source2:	%{name}-32.png
 Source3:	%{name}-16.png
 Source4:	%{name}-48.png
+# (fc) 0.130-2mdv fix memleaks (SVN)
+Patch0:		pan-0.130-fixleak.patch
 
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 %if %{with_spell}
@@ -32,8 +34,8 @@ The latest info and versions of Pan can always
 be found at http://pan.rebelbase.com/.
 
 %prep
-
 %setup -q
+%patch0 -p1 -b .fixleak
 
 %build
 
