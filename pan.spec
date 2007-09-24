@@ -6,7 +6,7 @@
 Summary:	A USENET newsreader for GNOME
 Name:		pan
 Version:	0.132
-Release:	%mkrel 1
+Release:	%mkrel 2
 Epoch:		1
 License:	GPL
 Group:		Networking/News
@@ -61,6 +61,8 @@ title="Pan" longtitle="Read News from Usenet" \
 startup_notify="true" \
 xdg="true"
 EOF
+
+sed -i -e 's/^\(Icon=.*\).png$/\1/g' $RPM_BUILD_ROOT%{_datadir}/applications/pan.desktop 
 
 desktop-file-install --vendor="" \
   --remove-category="Application" \
