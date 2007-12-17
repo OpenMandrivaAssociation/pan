@@ -16,7 +16,6 @@ Source2:	%{name}-32.png
 Source3:	%{name}-16.png
 Source4:	%{name}-48.png
 
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 %if %{with_spell}
 BuildRequires:  gtkspell-devel
 %endif
