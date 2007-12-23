@@ -6,9 +6,9 @@
 Summary:	A USENET newsreader for GNOME
 Name:		pan
 Version:	0.132
-Release:	%mkrel 2
+Release:	%mkrel 3
 Epoch:		1
-License:	GPL
+License:	GPLv2+
 Group:		Networking/News
 URL:		http://pan.rebelbase.com/
 Source0:	http://pan.rebelbase.com/download/releases/%{version}/source/%{name}-%{version}.tar.bz2
@@ -53,15 +53,6 @@ be found at http://pan.rebelbase.com/.
 %{find_lang} %{name}
 
 # Menu
-mkdir -p $RPM_BUILD_ROOT%{_menudir}
-cat >$RPM_BUILD_ROOT%{_menudir}/%{name} <<EOF
-?package(%{name}): command="%{_bindir}/%{name}" needs="X11" \
-icon="%{name}.png" section="Internet/News" \
-title="Pan" longtitle="Read News from Usenet" \
-startup_notify="true" \
-xdg="true"
-EOF
-
 sed -i -e 's/^\(Icon=.*\).png$/\1/g' $RPM_BUILD_ROOT%{_datadir}/applications/pan.desktop 
 
 desktop-file-install --vendor="" \
@@ -69,7 +60,6 @@ desktop-file-install --vendor="" \
   --add-category="GTK" \
   --add-category="News" \
   --add-category="Network" \
-  --add-category="X-MandrivaLinux-Internet-News" \
   --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
 
 #icon
@@ -91,7 +81,6 @@ cp -f %{SOURCE4} $RPM_BUILD_ROOT/%{_liconsdir}/%{name}.png
 %defattr(-,root,root)
 %doc README ChangeLog AUTHORS TODO COPYING 
 %attr(755,root,root) %{_bindir}/%{name}
-%{_menudir}/%{name}
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
