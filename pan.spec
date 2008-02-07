@@ -12,6 +12,9 @@ License:	GPLv2+
 Group:		Networking/News
 URL:		http://pan.rebelbase.com/
 Source0:	http://pan.rebelbase.com/download/releases/%{version}/source/%{name}-%{version}.tar.bz2
+Patch01:	01_make_group_searches_regexps.dpatch
+Patch02:	02_windowsmacosx.dpatch
+Patch04:	04_g_assert.dpatch
 Source2:	%{name}-32.png
 Source3:	%{name}-16.png
 Source4:	%{name}-48.png
@@ -33,6 +36,9 @@ be found at http://pan.rebelbase.com/.
 
 %prep
 %setup -q
+%patch01 -p1
+%patch02 -p1
+%patch04 -p1
 
 %build
 
