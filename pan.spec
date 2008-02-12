@@ -29,7 +29,6 @@ BuildRequires:	pcre-devel
 BuildRequires:	desktop-file-utils
 
 %description
-
 This is PAN, a powerful and user-friendly USENET newsreader for GNOME.  
 The latest info and versions of Pan can always
 be found at http://pan.rebelbase.com/.
