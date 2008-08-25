@@ -5,8 +5,8 @@
 
 Summary:	A USENET newsreader for GNOME
 Name:		pan
-Version:	0.132
-Release:	%mkrel 6
+Version:	0.133
+Release:	%mkrel 1
 Epoch:		1
 License:	GPLv2+
 Group:		Networking/News
@@ -14,14 +14,6 @@ URL:		http://pan.rebelbase.com/
 Source0:	http://pan.rebelbase.com/download/releases/%{version}/source/%{name}-%{version}.tar.bz2
 Patch01:	01_make_group_searches_regexps.dpatch
 Patch02:	02_windowsmacosx.dpatch
-Patch04:	04_g_assert.dpatch
-# (fc) 0.132-4mdv fix decoding large JPEG (Fedora) (GNOME bug #467446)
-Patch5:		pan-0.132-decodejpeg.patch
-# (fc) 0.132-4mdv fix build with gcc4.3 (GNOME bug #524625)
-Patch6:		pan-0.132-gcc43.patch
-# (fhimpe) fix for CVE-2008-2363 (Fedora)
-# http://www.securityfocus.com/bid/29421/info
-Patch7:		pan-0.132-CVE-2008-2363.patch
 Source2:	%{name}-32.png
 Source3:	%{name}-16.png
 Source4:	%{name}-48.png
@@ -44,10 +36,6 @@ be found at http://pan.rebelbase.com/.
 %setup -q
 %patch01 -p1
 %patch02 -p1
-%patch04 -p1
-%patch5 -p1 -b .decodejpeg
-%patch6 -p1 -b .gcc43
-%patch7 -p1 -b .CVE-2008-2363
 
 %build
 
