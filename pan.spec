@@ -24,7 +24,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:  gtkspell-devel
 %endif
 BuildRequires:	gtk+2-devel >= 2.0.5
-BuildRequires:	libgmime-devel
+BuildRequires:	libgmime2.2-devel
 BuildRequires:	pcre-devel
 BuildRequires:	desktop-file-utils
 
