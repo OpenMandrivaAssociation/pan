@@ -6,7 +6,7 @@
 Summary:	A USENET newsreader for GNOME
 Name:		pan
 Version:	0.133
-Release:	%mkrel 2
+Release:	%mkrel 3
 Epoch:		1
 License:	GPLv2+
 Group:		Networking/News
@@ -15,6 +15,7 @@ Source0:	http://pan.rebelbase.com/download/releases/%{version}/source/%{name}-%{
 Patch01:	01_make_group_searches_regexps.dpatch
 Patch02:	02_windowsmacosx.dpatch
 Patch03:	pan-0.133-fix-str-fmt.patch
+Patch04:	pan-0.133-gcc44.patch
 Source2:	%{name}-32.png
 Source3:	%{name}-16.png
 Source4:	%{name}-48.png
@@ -38,6 +39,7 @@ be found at http://pan.rebelbase.com/.
 %patch01 -p1
 %patch02 -p1
 %patch03 -p0
+%patch04 -p1
 
 %build
 
@@ -51,30 +53,30 @@ be found at http://pan.rebelbase.com/.
 %make
 
 %install
-[ -n "$RPM_BUILD_ROOT" -a "$RPM_BUILD_ROOT" != / ] && rm -rf $RPM_BUILD_ROOT
+[ -n "%{buildroot}" -a "%{buildroot}" != / ] && rm -rf %{buildroot}
 
 %makeinstall_std Productivitydir=%{_datadir}/applications/
 
 %{find_lang} %{name}
 
 # Menu
-sed -i -e 's/^\(Icon=.*\).png$/\1/g' $RPM_BUILD_ROOT%{_datadir}/applications/pan.desktop 
+sed -i -e 's/^\(Icon=.*\).png$/\1/g' %{buildroot}%{_datadir}/applications/pan.desktop 
 
 desktop-file-install --vendor="" \
   --remove-category="Application" \
   --add-category="GTK" \
   --add-category="News" \
   --add-category="Network" \
-  --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
+  --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 #icon
-install -d $RPM_BUILD_ROOT/%{_iconsdir}
-install -d $RPM_BUILD_ROOT/%{_liconsdir}
-install -d $RPM_BUILD_ROOT/%{_miconsdir}
-cp -f %{SOURCE2} $RPM_BUILD_ROOT/%{_iconsdir}/%{name}.png
-cp -f %{SOURCE3} $RPM_BUILD_ROOT/%{_miconsdir}/%{name}.png
+install -d %{buildroot}/%{_iconsdir}
+install -d %{buildroot}/%{_liconsdir}
+install -d %{buildroot}/%{_miconsdir}
+cp -f %{SOURCE2} %{buildroot}/%{_iconsdir}/%{name}.png
+cp -f %{SOURCE3} %{buildroot}/%{_miconsdir}/%{name}.png
 # png is anti-aliased when put on the gnome panel
-cp -f %{SOURCE4} $RPM_BUILD_ROOT/%{_liconsdir}/%{name}.png
+cp -f %{SOURCE4} %{buildroot}/%{_liconsdir}/%{name}.png
 
 %if %mdkversion < 200900
 %post
@@ -97,6 +99,6 @@ cp -f %{SOURCE4} $RPM_BUILD_ROOT/%{_liconsdir}/%{name}.png
 %{_datadir}/pixmaps/*
 
 %clean
-[ -n "$RPM_BUILD_ROOT" -a "$RPM_BUILD_ROOT" != / ] && rm -rf $RPM_BUILD_ROOT
+[ -n "%{buildroot}" -a "%{buildroot}" != / ] && rm -rf %{buildroot}
 
 
