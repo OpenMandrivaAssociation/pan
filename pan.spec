@@ -5,17 +5,15 @@
 
 Summary:	A USENET newsreader for GNOME
 Name:		pan
-Version:	0.133
-Release:	%mkrel 6
+Version:	0.134
+Release:	%mkrel 1
 Epoch:		1
 License:	GPLv2+
 Group:		Networking/News
 URL:		http://pan.rebelbase.com/
 Source0:	http://pan.rebelbase.com/download/releases/%{version}/source/%{name}-%{version}.tar.bz2
-Patch01:	01_make_group_searches_regexps.dpatch
 Patch02:	02_windowsmacosx.dpatch
 Patch03:	pan-0.133-fix-str-fmt.patch
-Patch04:	pan-0.133-gcc44.patch
 Source2:	%{name}-32.png
 Source3:	%{name}-16.png
 Source4:	%{name}-48.png
@@ -25,7 +23,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:  gtkspell-devel
 %endif
 BuildRequires:	gtk+2-devel >= 2.0.5
-BuildRequires:	libgmime2.2-devel
+BuildRequires:	gmime-devel
 BuildRequires:	pcre-devel
 BuildRequires:	desktop-file-utils
 
@@ -36,10 +34,8 @@ be found at http://pan.rebelbase.com/.
 
 %prep
 %setup -q
-%patch01 -p1
 %patch02 -p1
 %patch03 -p0
-%patch04 -p1
 
 %build
 
