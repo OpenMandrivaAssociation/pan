@@ -24,8 +24,8 @@ BuildRequires:  gtkspell-devel
 %endif
 BuildRequires:	gtk+2-devel >= 2.0.5
 BuildRequires:	gmime-devel
-BuildRequires:	pcre-devel
 BuildRequires:	desktop-file-utils
+BuildRequires:	intltool
 
 %description
 This is PAN, a powerful and user-friendly USENET newsreader for GNOME.  
