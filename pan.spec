@@ -74,19 +74,9 @@ cp -f %{SOURCE3} %{buildroot}/%{_miconsdir}/%{name}.png
 # png is anti-aliased when put on the gnome panel
 cp -f %{SOURCE4} %{buildroot}/%{_liconsdir}/%{name}.png
 
-%if %mdkversion < 200900
-%post
-%{update_menus}
-%endif
-
-%if %mdkversion < 200900
-%postun
-%{clean_menus}
-%endif
-
 %files -f %{name}.lang
 %defattr(-,root,root)
-%doc README ChangeLog AUTHORS TODO COPYING 
+%doc README ChangeLog AUTHORS
 %attr(755,root,root) %{_bindir}/%{name}
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
