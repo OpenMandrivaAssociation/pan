@@ -1,0 +1,10 @@
+--- pan/gui/server-ui.cc.str	2009-04-11 10:16:38.000000000 +0200
++++ pan/gui/server-ui.cc	2009-04-11 10:16:50.000000000 +0200
+@@ -167,6 +167,7 @@
+                                                     GTK_DIALOG_DESTROY_WITH_PARENT,
+                                                     GTK_MESSAGE_ERROR,
+                                                     GTK_BUTTONS_CLOSE,
++						    "%s",
+                                                     err_msg));
+         g_signal_connect_swapped (dialog, "response", G_CALLBACK(gtk_widget_destroy), dialog);
+         gtk_widget_show (dialog);

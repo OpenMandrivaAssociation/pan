@@ -1,0 +1,41 @@
+diff -Naur pan-0.125.old/pan/gui/prefs-ui.cc pan-0.125.new/pan/gui/prefs-ui.cc
+--- pan-0.125.old/pan/gui/prefs-ui.cc	2007-02-01 16:43:26.000000000 +0100
++++ pan-0.125.new/pan/gui/prefs-ui.cc	2007-04-03 23:47:54.000000000 +0200
+@@ -157,10 +157,8 @@
+     // build the combo box...
+     const std::string mode (prefs.get_string (mode_key, mode_fallback));
+     GtkListStore * store = gtk_list_store_new (2, G_TYPE_STRING, G_TYPE_STRING);
+-    const char* strings[5][2] = { { N_("Use GNOME Preferences"), "gnome" },
++    const char* strings[3][2] = { { N_("Use GNOME Preferences"), "gnome" },
+                                   { N_("Use KDE Preferences"), "kde" },
+-                                  { N_("Use OS X Preferences"), "mac" },
+-                                  { N_("Use Windows Preferences"), "windows" },
+                                   { N_("Custom Command:"), "custom" } };
+     int sel_index (0);
+     for (size_t i=0; i<G_N_ELEMENTS(strings); ++i) {
+diff -Naur pan-0.125.old/pan/gui/url.cc pan-0.125.new/pan/gui/url.cc
+--- pan-0.125.old/pan/gui/url.cc	2007-02-01 16:43:26.000000000 +0100
++++ pan-0.125.new/pan/gui/url.cc	2007-04-03 23:47:31.000000000 +0200
+@@ -29,21 +29,15 @@
+ 
+ using namespace pan;
+ 
+-// possible values: "gnome", "kde", "mac", "windows", "custom"
++// possible values: "gnome", "kde", "custom"
+ const char*
+ URL :: get_environment ()
+ {
+   const char * mode ("custom");
+-#if defined(G_OS_WIN32)
+-  mode = "windows";
+-#elif defined(G_OS_DARWIN)
+-  mode = "mac";
+-#else // not mac or windows
+   if (g_getenv ("GNOME_DESKTOP_SESSION_ID"))
+     mode = "gnome";
+   else if (g_getenv ("KDE_FULL_SESSION"))
+     mode = "kde";
+-#endif
+   return mode;
+ }
+ 
