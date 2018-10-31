@@ -6,7 +6,7 @@
 Summary:	A USENET newsreader for GNOME
 Name:		pan
 Version:	0.137
-Release:	10
+Release:	11
 Epoch:		1
 License:	GPLv2+
 Group:		Networking/News
