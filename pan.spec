@@ -10,7 +10,7 @@ Release:	11
 Epoch:		1
 License:	GPLv2+
 Group:		Networking/News
-Url:		http://pan.rebelbase.com/
+Url:		https://pan.rebelbase.com/
 Source0:	http://pan.rebelbase.com/download/releases/%{version}/source/%{name}-%{version}.tar.bz2
 Patch02:	02_windowsmacosx.dpatch
 Patch03:	pan-0.133-fix-str-fmt.patch
