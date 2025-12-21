@@ -17,6 +17,11 @@ Patch03:	pan-0.133-fix-str-fmt.patch
 Source2:	%{name}-32.png
 Source3:	%{name}-16.png
 Source4:	%{name}-48.png
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
 %if %{with_spell}
