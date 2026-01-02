@@ -9,6 +9,7 @@ Source0:	https://gitlab.gnome.org/GNOME/pan/-/archive/v%{version}/%{name}-v%{ver
 
 BuildRequires:	make
 BuildRequires:	cmake
+BuildRequires:	gettext
 BuildRequires:  pkgconfig(enchant-2)
 BuildRequires:  pkgconfig(gcr-3)
 BuildRequires:  pkgconfig(gmime-3.0)
