@@ -25,7 +25,7 @@ The latest info and versions of Pan can always
 be found at http://pan.rebelbase.com/.
 
 %prep
-%autosetup -p1
+%autosetup -n %{name}-v%{version} -p1
 
 %build
 %cmake \
