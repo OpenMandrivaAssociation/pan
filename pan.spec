@@ -31,8 +31,8 @@ be found at http://pan.rebelbase.com/.
 
 %build
 %cmake \
-		-DBUILD_STATIC_LIBS=OFF \
-		-DBUILD_SHARED_LIBS=ON \
+		-DBUILD_STATIC_LIBS=OM \
+		-DBUILD_SHARED_LIBS=OFF \
   		-DENABLE_MANUAL=ON \
   		-DWANT_GNUTLS=ON \
   		-DWANT_DBUS=ON \
