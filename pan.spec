@@ -30,6 +30,7 @@ be found at http://pan.rebelbase.com/.
 %autosetup -n %{name}-v%{version} -p1
 
 %build
+# Static should be enabled and shared disabled until it is fixed https://gitlab.gnome.org/GNOME/pan/-/issues/190
 %cmake \
 		-DBUILD_STATIC_LIBS=OM \
 		-DBUILD_SHARED_LIBS=OFF \
@@ -57,4 +58,6 @@ be found at http://pan.rebelbase.com/.
 %{_datadir}/metainfo/*.%{name}.metainfo.xml
 %{_datadir}/dbus-1/services/org.gnome.pan.service
 %{_datadir}/pan/
+%{_datadir}/help/*
+%{_mandir}/man1/pan.1.*
 
